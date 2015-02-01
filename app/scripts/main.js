@@ -59,10 +59,10 @@ d3.json('data.json',function(e,data){
     .attr("class", "bar")
     .attr("x", function(d) { return x(d.id); })
     .attr("width", x.rangeBand())
+    .attr('rx','0%')
+    .attr('ry','0%')
     .attr("y", function(d) { return height; })
-    //.attr("y", function(d) { return y(d.value); })
     .attr("height", function(d) { return 0; })
-    //.attr("height", function(d) { return height - y(d.value); })
     .attr('fill',function(d,i){
       return color(i);
     })
@@ -71,4 +71,13 @@ d3.json('data.json',function(e,data){
     .delay(function(d,i){return i * 330})
     .attr("height", function(d) { return height - y(d.value); })
     .attr("y", function(d) { return y(d.value); })
+
+    .transition()
+    .duration(660)
+    .delay(5000)
+    .attr('rx','50%')
+    .attr('ry','50%')
+    .attr('height',50)
+    .attr('width',50)
+
 })
