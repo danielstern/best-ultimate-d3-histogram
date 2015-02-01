@@ -59,7 +59,8 @@ d3.json('data.json',function(e,data){
     .attr("class", "bar")
     .attr("x", function(d) { return x(d.id); })
     .attr("width", x.rangeBand())
-    .attr("y", function(d) { return y(d.value); })
+    .attr("y", function(d) { return height; })
+    //.attr("y", function(d) { return y(d.value); })
     .attr("height", function(d) { return 0; })
     //.attr("height", function(d) { return height - y(d.value); })
     .attr('fill',function(d,i){
@@ -69,4 +70,5 @@ d3.json('data.json',function(e,data){
     .duration(300)
     .delay(function(d,i){return i * 330})
     .attr("height", function(d) { return height - y(d.value); })
+    .attr("y", function(d) { return y(d.value); })
 })
